@@ -5,12 +5,16 @@ import { useRouter } from "next/navigation"
 import Link from "next/link"
 import Cookies from "js-cookie"
 import AuthBackground from "./shared/AuthBackground"
+import { initializeSuperAdmin, defaultSuperAdmin } from "@modules/Auth/config"
 
 interface User {
-  firstName: string
-  lastName: string
+  firstName?: string
+  lastName?: string
+  nombre?: string
+  apellido?: string
   email: string
   password: string
+  role?: string
 }
 
 const SignIn = () => {
@@ -18,23 +22,16 @@ const SignIn = () => {
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
   const router = useRouter()
 
   useEffect(() => {
-    const defaultUser: User = {
-      firstName: "Developer",
-      lastName: "Account",
-      email: "dev@example.com",
-      password: "dev123456"
-    }
-
-    const users = JSON.parse(localStorage.getItem("users") || "[]")
-    if (!users.some((user: User) => user.email === defaultUser.email)) {
-      localStorage.setItem("users", JSON.stringify([...users, defaultUser]))
-      console.log("Cuenta de desarrollador creada con éxito")
-      console.log("Email: dev@example.com")
-      console.log("Contraseña: dev123456")
-    }
+    // Limpiar datos anteriores
+    localStorage.clear()
+    Cookies.remove('authenticated')
+    
+    // Inicializar super admin
+    initializeSuperAdmin()
   }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -43,22 +40,45 @@ const SignIn = () => {
     setError("")
 
     try {
+      // Si es el super admin, verificar directamente
+      if (email === defaultSuperAdmin.email && password === defaultSuperAdmin.password) {
+        const userData = {
+          nombre: defaultSuperAdmin.nombre,
+          apellido: defaultSuperAdmin.apellido,
+          email: defaultSuperAdmin.email,
+          role: defaultSuperAdmin.role
+        }
+        
+        localStorage.setItem("currentUser", JSON.stringify(userData))
+        Cookies.set("authenticated", "true", { expires: 7 })
+        
+        console.log("Super Admin autenticado:", userData)
+        router.push("/dk")
+        return
+      }
+
+      // Para otros usuarios
       const users: User[] = JSON.parse(localStorage.getItem("users") || "[]")
       const user = users.find(u => u.email === email && u.password === password)
 
       if (user) {
-        localStorage.setItem("currentUser", JSON.stringify({
-          firstName: user.firstName,
-          lastName: user.lastName,
-          email: user.email
-        }))
+        const userData = {
+          nombre: user.firstName || user.nombre,
+          apellido: user.lastName || user.apellido,
+          email: user.email,
+          role: user.role || 'user'
+        }
         
+        localStorage.setItem("currentUser", JSON.stringify(userData))
         Cookies.set("authenticated", "true", { expires: 7 })
+        
+        console.log("Usuario autenticado:", userData)
         router.push("/dk")
       } else {
         setError("Correo electrónico o contraseña incorrectos")
       }
     } catch (err) {
+      console.error("Error durante el login:", err)
       setError("Ocurrió un error. Por favor intenta de nuevo.")
     } finally {
       setLoading(false)
@@ -109,16 +129,34 @@ const SignIn = () => {
               <label htmlFor="password" className="block text-sm font-medium text-amber-300 mb-1">
                 Contraseña
               </label>
-              <input
-                id="password"
-                name="password"
-                type="password"
-                required
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-3 py-2 border border-amber-500/30 rounded-md text-sm transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-400 bg-black/50 text-amber-50 placeholder-amber-500/50"
-                placeholder="••••••••"
-              />
+              <div className="relative">
+                <input
+                  id="password"
+                  name="password"
+                  type={showPassword ? "text" : "password"}
+                  required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full px-3 py-2 border border-amber-500/30 rounded-md text-sm transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-400 bg-black/50 text-amber-50 placeholder-amber-500/50"
+                  placeholder="••••••••"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-amber-400 hover:text-amber-300"
+                >
+                  {showPassword ? (
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
+                    </svg>
+                  ) : (
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  )}
+                </button>
+              </div>
             </div>
 
             <div className="text-right">
