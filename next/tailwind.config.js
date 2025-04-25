@@ -61,6 +61,8 @@ module.exports = {
       },
       fontFamily: {
         sans: [
+          "var(--font-opensans)",
+          "var(--font-lato)",
           "Inter",
           "-apple-system",
           "BlinkMacSystemFont",
@@ -68,6 +70,20 @@ module.exports = {
           "Roboto",
           "Helvetica Neue",
           "Ubuntu",
+          "sans-serif",
+        ],
+        title: [
+          "var(--font-playfair)",
+          "var(--font-montserrat)",
+          "serif",
+        ],
+        body: [
+          "var(--font-lato)",
+          "var(--font-opensans)",
+          "sans-serif",
+        ],
+        accent: [
+          "var(--font-roboto-condensed)",
           "sans-serif",
         ],
       },
