@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import AuthBackground from "@modules/login-mockup/components/auth/shared/AuthBackground"
+import AuthBackground from "@modules/login/components/auth/shared/AuthBackground"
 
 type UserRole = 'admin' | 'mayorista' | 'empresario'
 

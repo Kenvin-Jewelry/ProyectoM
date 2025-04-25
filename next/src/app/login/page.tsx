@@ -1,4 +1,4 @@
-import SignIn from "@modules/login-mockup/components/auth/sign-in"
+import SignIn from "@modules/login/components/auth/sign-in"
 
 export default function LoginPage() {
   return <SignIn />
