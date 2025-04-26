@@ -63,7 +63,7 @@ const LandingPage: React.FC = () => {
             Agenda una reunión con uno de nuestros asesores para recibir información personalizada sobre nuestro programa de mayoristas.
           </p>
           <a 
-            href="https://calendly.com/kevinjewelry/reunion-mayoristas" 
+            href="https://calendly.com/devkevinjewelry/30min" 
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-block bg-gradient-to-r from-amber-600 to-yellow-500 text-black px-8 py-3 rounded-md font-medium hover:from-amber-500 hover:to-yellow-400 transition-all duration-200 ease-in-out transform hover:scale-[1.02] active:scale-[0.98]"
