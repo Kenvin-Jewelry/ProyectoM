@@ -53,7 +53,7 @@ const SignIn = () => {
         Cookies.set("authenticated", "true", { expires: 7 })
         
         console.log("Super Admin autenticado:", userData)
-        router.push("/dk")
+        router.push("/landing")
         return
       }
 
@@ -73,7 +73,7 @@ const SignIn = () => {
         Cookies.set("authenticated", "true", { expires: 7 })
         
         console.log("Usuario autenticado:", userData)
-        router.push("/dk")
+        router.push("/landing")
       } else {
         setError("Correo electrónico o contraseña incorrectos")
       }
