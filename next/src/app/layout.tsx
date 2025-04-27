@@ -1,9 +1,10 @@
 import { getBaseURL } from "@lib/util/env"
 import { Metadata } from "next"
 import "styles/globals.css"
-import { Playfair_Display, Montserrat, Lato, Open_Sans, Roboto_Condensed } from 'next/font/google'
+import { Inter, Playfair_Display, Montserrat, Lato, Open_Sans, Roboto_Condensed } from 'next/font/google'
 
 // Configuración de fuentes
+const inter = Inter({ subsets: ['latin'] })
 const playfair = Playfair_Display({ 
   subsets: ['latin'],
   variable: '--font-playfair',
@@ -42,6 +43,9 @@ export const metadata: Metadata = {
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="es" data-mode="light" className={`${playfair.variable} ${montserrat.variable} ${lato.variable} ${openSans.variable} ${robotoCondensed.variable}`}>
+      <head>
+        <link rel="stylesheet" href="/fonts.css" />
+      </head>
       <body className="font-body">
         <main className="relative">{props.children}</main>
       </body>

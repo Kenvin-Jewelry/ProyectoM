@@ -1,19 +1,40 @@
 import React from "react"
+import Nav from "./Nav"
 import Hero from "./Hero"
 import ValueSection from "./ValueSection"
 import Testimonials from "./Testimonials"
 import ContactForm from "./ContactForm"
-import Navbar from "../common/components/Navbar"
-import Footer from "../common/components/Footer"
-import GoldenBackground from "../common/components/GoldenBackground"
+import Footer from "./Footer"
+
+// Componente de fondo inspirado en AuthBackground
+const GoldenBackground = () => {
+  return (
+    <div className="fixed inset-0 z-0">
+      {/* Fondo con gradiente negro y efecto brillante */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black">
+        <div className="absolute inset-0 bg-[linear-gradient(30deg,#111111_12%,transparent_12.5%,transparent_87%,#111111_87.5%,#111111_100%)] bg-[length:20px_20px] opacity-10"></div>
+      </div>
+
+      {/* Formas decorativas doradas */}
+      <div className="absolute top-0 -left-4 w-72 h-72 bg-amber-400/20 rounded-full mix-blend-overlay filter blur-xl opacity-30 animate-blob"></div>
+      <div className="absolute top-0 -right-4 w-72 h-72 bg-yellow-500/20 rounded-full mix-blend-overlay filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
+      <div className="absolute -bottom-8 left-20 w-72 h-72 bg-amber-300/20 rounded-full mix-blend-overlay filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
+
+      {/* Línea decorativa superior dorada */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent"></div>
+
+      {/* Efecto de brillo adicional */}
+      <div className="absolute inset-0 bg-gradient-radial from-amber-500/5 to-transparent opacity-20"></div>
+    </div>
+  )
+}
 
 const LandingPage: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen relative">
       <GoldenBackground />
-      
       {/* 1. Header */}
-      <Navbar />
+      <Nav />
 
       {/* 2. Hero Section */}
       <Hero />
@@ -53,7 +74,7 @@ const LandingPage: React.FC = () => {
         </div>
       </div>
 
-      {/* 7. Footer */}
+      {/* 6. Footer */}
       <Footer />
     </div>
   )

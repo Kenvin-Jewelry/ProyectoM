@@ -7,10 +7,8 @@ const ContactForm: React.FC = () => {
     contactName: "",
     email: "",
     companyName: "",
-    website: "",
     phone: "",
-    message: "",
-    businessType: ""
+    message: ""
   })
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState("")
@@ -125,42 +123,6 @@ const ContactForm: React.FC = () => {
             className="w-full px-3 py-2 border border-amber-500/30 rounded-md text-sm transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-400 bg-black/50 text-amber-50 placeholder-amber-500/50"
             required
           />
-        </div>
-      </div>
-      
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <div>
-          <label htmlFor="website" className="block text-sm font-medium text-amber-300 mb-1">
-          Sitio web
-        </label>
-        <input
-          id="website"
-          name="website"
-          type="url"
-          value={formData.website}
-          onChange={handleChange}
-            className="w-full px-3 py-2 border border-amber-500/30 rounded-md text-sm transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-400 bg-black/50 text-amber-50 placeholder-amber-500/50"
-          placeholder="https://"
-        />
-        </div>
-        <div>
-          <label htmlFor="businessType" className="block text-sm font-medium text-amber-300 mb-1">
-            Tipo de negocio
-          </label>
-          <select
-            id="businessType"
-            name="businessType"
-            value={formData.businessType}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border border-amber-500/30 rounded-md text-sm transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-400 bg-black/50 text-amber-50 placeholder-amber-500/50"
-          >
-            <option value="">Selecciona una opción</option>
-            <option value="tienda_fisica">Tienda Física</option>
-            <option value="tienda_online">Tienda Online</option>
-            <option value="ambas">Ambas</option>
-            <option value="distribuidor">Distribuidor</option>
-            <option value="otro">Otro</option>
-          </select>
         </div>
       </div>
       

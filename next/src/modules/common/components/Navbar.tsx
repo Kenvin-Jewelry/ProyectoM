@@ -17,15 +17,15 @@ const Nav = () => {
         <div className="grid grid-cols-3 items-center">
           {/* Enlaces principales - izquierda (solo desktop) */}
           <nav className="hidden md:flex space-x-8 justify-self-start">
-            <Link href="/" className="text-amber-400 hover:text-amber-300 text-sm font-medium transition-colors duration-200 font-body">Inicio</Link>
-            <Link href="/catalogo" className="text-amber-400 hover:text-amber-300 text-sm font-medium transition-colors duration-200 font-body">Catálogo</Link>
+            <Link href="/landing" className="text-amber-400 hover:text-amber-300 text-sm font-medium transition-colors duration-200 font-body">Inicio</Link>
+            <Link href="/catalogos" className="text-amber-400 hover:text-amber-300 text-sm font-medium transition-colors duration-200 font-body">Catálogo</Link>
             <Link href="/contacto" className="text-amber-400 hover:text-amber-300 text-sm font-medium transition-colors duration-200 font-body">Contacto</Link>
-            <Link href="/politicas" className="text-amber-400 hover:text-amber-300 text-sm font-medium transition-colors duration-200 font-body">Políticas</Link>
+            <Link href="/nosotros" className="text-amber-400 hover:text-amber-300 text-sm font-medium transition-colors duration-200 font-body">Nosotros</Link>
           </nav>
           
           {/* Logo centrado - más grande */}
           <div className="flex justify-center">
-            <Link href="/" className="block">
+            <Link href="/landing" className="block">
               <img 
                 src="/images/logoNav.png" 
                 alt="Kevin Jewelry" 
@@ -86,7 +86,7 @@ const Nav = () => {
             Inicio
           </Link>
           <Link 
-            href="/catalogo" 
+            href="/catalogos" 
             className="text-amber-400 hover:text-amber-300 text-xl font-medium transition-colors duration-200 font-body"
             onClick={() => setIsMenuOpen(false)}
           >
@@ -100,11 +100,11 @@ const Nav = () => {
             Contacto
           </Link>
           <Link 
-            href="/politicas" 
+            href="/nosotros" 
             className="text-amber-400 hover:text-amber-300 text-xl font-medium transition-colors duration-200 font-body"
             onClick={() => setIsMenuOpen(false)}
           >
-            Políticas
+            Nosotros
           </Link>
           
           {/* Separador */}

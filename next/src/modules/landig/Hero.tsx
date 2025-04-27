@@ -71,7 +71,6 @@ const Hero = () => {
                 src="https://kevinjewelry.com/cdn/shop/videos/c/vp/2155e633f53b4ed3992b941de29293fa/2155e633f53b4ed3992b941de29293fa.HD-1080p-7.2Mbps-42844374.mp4?v=0"
                 autoPlay
                 muted
-                loop
                 playsInline
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
@@ -145,7 +144,6 @@ const Hero = () => {
                 src="https://kevinjewelry.com/cdn/shop/videos/c/vp/2155e633f53b4ed3992b941de29293fa/2155e633f53b4ed3992b941de29293fa.HD-1080p-7.2Mbps-42844374.mp4?v=0"
                 autoPlay
                 muted
-                loop
                 playsInline
               />
               

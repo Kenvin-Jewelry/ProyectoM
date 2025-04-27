@@ -1,7 +1,15 @@
+"use client"
 import React from "react"
 import Link from "next/link"
 
 const Footer: React.FC = () => {
+  // Maneja scroll suave para anclajes
+  const handleScroll = (id: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    const el = document.getElementById(id)
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <footer className="bg-black/90 backdrop-blur-md text-amber-300 pt-16 pb-8 border-t border-amber-500/30 relative z-10">
       {/* Línea decorativa superior */}
@@ -13,16 +21,7 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-bold mb-4 text-amber-400">NAVEGACIÓN RÁPIDA</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-amber-300/70 hover:text-amber-300 transition-colors duration-200 text-sm">Inicio</Link>
-              </li>
-              <li>
-                <Link href="/#beneficios" className="text-amber-300/70 hover:text-amber-300 transition-colors duration-200 text-sm">Beneficios</Link>
-              </li>
-              <li>
-                <Link href="/#formulario" className="text-amber-300/70 hover:text-amber-300 transition-colors duration-200 text-sm">Solicitar cotización</Link>
-              </li>
-              <li>
-                <Link href="/#agendar" className="text-amber-300/70 hover:text-amber-300 transition-colors duration-200 text-sm">Agendar reunión</Link>
+                <Link href="/landing" className="text-amber-300/70 hover:text-amber-300 transition-colors duration-200 text-sm">Inicio</Link>
               </li>
               <li>
                 <Link href="/nosotros" className="text-amber-300/70 hover:text-amber-300 transition-colors duration-200 text-sm">Nosotros</Link>
@@ -31,29 +30,9 @@ const Footer: React.FC = () => {
                 <Link href="/contacto" className="text-amber-300/70 hover:text-amber-300 transition-colors duration-200 text-sm">Contacto</Link>
               </li>
               <li>
-                <Link href="/catalogo" className="text-amber-300/70 hover:text-amber-300 transition-colors duration-200 text-sm">Catálogo</Link>
-              </li>
-              <li className="pt-2">
-                <ul className="pl-4 space-y-2">
-                  <li>
-                    <Link href="/catalogo/publico" className="text-amber-300/70 hover:text-amber-300 transition-colors duration-200 text-sm flex items-center">
-                      <span className="inline-block w-2 h-2 bg-amber-500 rounded-full mr-2"></span> 
-                      Público (precios retail)
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/catalogo/mayorista" className="text-amber-300/70 hover:text-amber-300 transition-colors duration-200 text-sm flex items-center">
-                      <span className="inline-block w-2 h-2 bg-amber-500 rounded-full mr-2"></span> 
-                      Mayorista (descuentos por volumen)
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/catalogo/empresarial" className="text-amber-300/70 hover:text-amber-300 transition-colors duration-200 text-sm flex items-center">
-                      <span className="inline-block w-2 h-2 bg-amber-500 rounded-full mr-2"></span> 
-                      Empresario (ofertas corporativas)
-                    </Link>
-                  </li>
-                </ul>
+                <Link href="/catalogos" className="text-amber-300/70 hover:text-amber-400 transition-colors">
+                  Catálogo
+                </Link>
               </li>
             </ul>
           </div>
