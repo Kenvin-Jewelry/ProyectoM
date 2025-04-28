@@ -1,6 +1,5 @@
 import checkEnvVariables from "./check-env-variables.mjs"
 import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev';
-import path from 'path'
 
 
 checkEnvVariables()
@@ -40,19 +39,6 @@ const nextConfig = {
         hostname: "medusa-server-testing.s3.us-east-1.amazonaws.com",
       },
     ],
-  },
-  experimental: {
-    esmExternals: false,
-    externalDir: true,
-  },
-  webpack: (config, { isServer }) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      react: path.resolve('./node_modules/react'),
-      'react-dom': path.resolve('./node_modules/react-dom'),
-      'react-dom$': isServer ? 'react-dom/server' : 'react-dom/client',
-    };
-    return config;
   },
 }
 
