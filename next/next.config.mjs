@@ -1,9 +1,6 @@
 import checkEnvVariables from "./check-env-variables.mjs"
 import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev';
 
-
-checkEnvVariables()
-
 /**
  * @type {import('next').NextConfig}
  */
@@ -42,7 +39,9 @@ const nextConfig = {
   },
 }
 
+// En desarrollo, validamos variables y habilitamos bindings locales
 if (process.env.NODE_ENV === 'development') {
+  checkEnvVariables()
   await setupDevPlatform();
 }
 
