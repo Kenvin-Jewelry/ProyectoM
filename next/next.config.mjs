@@ -1,4 +1,6 @@
-const checkEnvVariables = require("./check-env-variables")
+import checkEnvVariables from "./check-env-variables.mjs"
+import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev';
+
 
 checkEnvVariables()
 
@@ -40,4 +42,8 @@ const nextConfig = {
   },
 }
 
-module.exports = nextConfig
+if (process.env.NODE_ENV === 'development') {
+  await setupDevPlatform();
+}
+
+export default nextConfig

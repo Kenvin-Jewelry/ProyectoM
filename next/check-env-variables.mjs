@@ -36,4 +36,4 @@ function checkEnvVariables() {
   }
 }
 
-module.exports = checkEnvVariables
+export default checkEnvVariables
