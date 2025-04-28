@@ -412,7 +412,7 @@ const Testimonials: React.FC = () => {
                 aria-label={`Ir al video ${idx + 1}`}
                 disabled={transitioning}
               />
-            ))}
+          ))}
           </div>
         </div>
         
