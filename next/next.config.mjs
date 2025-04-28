@@ -40,6 +40,16 @@ const nextConfig = {
       },
     ],
   },
+  experimental: {
+    esmExternals: false,
+  },
+  webpack: (config, { isServer }) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'react-dom$': isServer ? 'react-dom/server' : 'react-dom/client',
+    };
+    return config;
+  },
 }
 
 if (process.env.NODE_ENV === 'development') {
