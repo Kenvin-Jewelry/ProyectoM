@@ -1,7 +1,7 @@
 import React from "react"
 import Navbar from "../common/components/navbar"
 import Footer from "../common/components/footer"
-import ProductGrid from "./components/ProductGrid"
+import ProductGrid from "./components/productGrid"
 import GoldenBackground from "../common/components/goldenBackground"
 
 const CatalogPage: React.FC = () => {
