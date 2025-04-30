@@ -3,9 +3,9 @@ import Hero from "./Hero"
 import ValueSection from "./ValueSection"
 import Testimonials from "./Testimonials"
 import ContactForm from "./ContactForm"
-import Navbar from "../common/components/Navbar"
-import Footer from "../common/components/Footer"
-import GoldenBackground from "../common/components/GoldenBackground"
+import Navbar from "../common/components/navbar"
+import Footer from "../common/components/footer"
+import GoldenBackground from "../common/components/goldenBackground"
 
 const LandingPage: React.FC = () => {
   return (

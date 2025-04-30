@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ProductCard from './ProductCard';
+import ProductCard from './productCard';
 import { Product } from '../types';
 
 const ProductGrid: React.FC = () => {

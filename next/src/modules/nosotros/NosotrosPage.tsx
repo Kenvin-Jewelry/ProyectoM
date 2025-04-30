@@ -1,7 +1,7 @@
 import React from 'react'
-import Navbar from '../common/components/Navbar'
-import Footer from '../common/components/Footer'
-import GoldenBackground from '../common/components/GoldenBackground'
+import Navbar from '../common/components/navbar'
+import Footer from '../common/components/footer'
+import GoldenBackground from '../common/components/goldenBackground'
 import SubscriptionForm from './components/SubscriptionForm'
 
 const NosotrosPage: React.FC = () => {

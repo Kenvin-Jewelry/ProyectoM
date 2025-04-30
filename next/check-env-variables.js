@@ -1,4 +1,4 @@
-import c from "ansi-colors"
+const c = require("ansi-colors")
 
 const requiredEnvs = [
   {
@@ -36,4 +36,4 @@ function checkEnvVariables() {
   }
 }
 
-export default checkEnvVariables
+module.exports = checkEnvVariables

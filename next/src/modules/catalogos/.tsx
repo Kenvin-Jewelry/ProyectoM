@@ -1,5 +1,5 @@
 import React from "react"
-import Nav from "./Nav"
+import Nav from "./nav"
 import Hero from "./Hero"
 import ValueSection from "./ValueSection"
 import Testimonials from "./Testimonials"

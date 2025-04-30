@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { Product } from '../types';
-import Modal from '../../common/components/Modal';
+import Modal from '../../common/components/modal';
 
 const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
   const [showDetails, setShowDetails] = useState(false);

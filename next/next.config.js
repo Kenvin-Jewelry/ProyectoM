@@ -1,6 +1,4 @@
-import checkEnvVariables from "./check-env-variables.mjs"
-import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev';
-
+const checkEnvVariables = require("./check-env-variables")
 
 checkEnvVariables()
 
@@ -17,9 +15,9 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+  // typescript: {
+  //   ignoreBuildErrors: true,
+  // },
   images: {
     remotePatterns: [
       {
@@ -40,20 +38,6 @@ const nextConfig = {
       },
     ],
   },
-  experimental: {
-    esmExternals: false,
-  },
-  webpack: (config, { isServer }) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      'react-dom$': isServer ? 'react-dom/server' : 'react-dom/client',
-    };
-    return config;
-  },
 }
 
-if (process.env.NODE_ENV === 'development') {
-  await setupDevPlatform();
-}
-
-export default nextConfig
+module.exports = nextConfig
