@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 import Cookies from "js-cookie"
-import AuthBackground from "./shared/auth_background"
+import GoldenBackground from "@modules/common/components/goldenBackground"
 import { initializeSuperAdmin, defaultSuperAdmin } from "@modules/Auth/config"
 
 interface User {
@@ -26,11 +26,8 @@ const SignIn = () => {
   const router = useRouter()
 
   useEffect(() => {
-    // Limpiar datos anteriores
     localStorage.clear()
     Cookies.remove('authenticated')
-    
-    // Inicializar super admin
     initializeSuperAdmin()
   }, [])
 
@@ -38,9 +35,7 @@ const SignIn = () => {
     e.preventDefault()
     setLoading(true)
     setError("")
-
     try {
-      // Si es el super admin, verificar directamente
       if (email === defaultSuperAdmin.email && password === defaultSuperAdmin.password) {
         const userData = {
           nombre: defaultSuperAdmin.nombre,
@@ -48,19 +43,13 @@ const SignIn = () => {
           email: defaultSuperAdmin.email,
           role: defaultSuperAdmin.role
         }
-        
         localStorage.setItem("currentUser", JSON.stringify(userData))
         Cookies.set("authenticated", "true", { expires: 7 })
-        
-        console.log("Super Admin autenticado:", userData)
         router.push("/landing")
         return
       }
-
-      // Para otros usuarios
       const users: User[] = JSON.parse(localStorage.getItem("users") || "[]")
       const user = users.find(u => u.email === email && u.password === password)
-
       if (user) {
         const userData = {
           nombre: user.firstName || user.nombre,
@@ -68,17 +57,13 @@ const SignIn = () => {
           email: user.email,
           role: user.role || 'user'
         }
-        
         localStorage.setItem("currentUser", JSON.stringify(userData))
         Cookies.set("authenticated", "true", { expires: 7 })
-        
-        console.log("Usuario autenticado:", userData)
         router.push("/landing")
       } else {
         setError("Correo electrónico o contraseña incorrectos")
       }
     } catch (err) {
-      console.error("Error durante el login:", err)
       setError("Ocurrió un error. Por favor intenta de nuevo.")
     } finally {
       setLoading(false)
@@ -86,31 +71,23 @@ const SignIn = () => {
   }
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <AuthBackground />
-      
-      <div className="relative w-full max-w-md mx-auto p-6">
-        <div className="bg-black/80 backdrop-blur-lg shadow-2xl rounded-2xl p-8 relative overflow-hidden border border-amber-500/20">
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent"></div>
-          
+    <div className="relative h-screen flex items-center justify-center bg-pearl overflow-hidden">
+      <GoldenBackground />
+      <div className="relative w-full max-w-md mx-auto p-6 z-10">
+        <div className="bg-pearl shadow-2xl rounded-2xl p-8 border border-gold/30">
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold/30 to-transparent rounded-t-2xl" />
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-amber-400">
-              Bienvenido de nuevo
-            </h2>
-            <p className="text-sm text-amber-300/80 mt-2">
-              Inicia sesión para continuar
-            </p>
+            <h2 className="text-3xl font-extrabold text-black mb-2">Bienvenido de nuevo</h2>
+            <p className="text-grey-90 text-base">Inicia sesión para continuar</p>
           </div>
-
           <form onSubmit={handleSubmit} className="space-y-6">
             {error && (
-              <div className="text-sm text-red-400 bg-red-900/20 p-3 rounded-md border border-red-800/50">
+              <div className="text-sm text-red-600 bg-red-100 p-3 rounded-md border border-red-300">
                 {error}
               </div>
             )}
-
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-amber-300 mb-1">
+              <label htmlFor="email" className="block text-sm font-medium text-black mb-1">
                 Correo electrónico
               </label>
               <input
@@ -120,13 +97,12 @@ const SignIn = () => {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-3 py-2 border border-amber-500/30 rounded-md text-sm transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-400 bg-black/50 text-amber-50 placeholder-amber-500/50"
+                className="w-full px-3 py-2 border border-gold rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-gold bg-pearl text-black placeholder:text-grey-80"
                 placeholder="tu@ejemplo.com"
               />
             </div>
-
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-amber-300 mb-1">
+              <label htmlFor="password" className="block text-sm font-medium text-black mb-1">
                 Contraseña
               </label>
               <div className="relative">
@@ -137,13 +113,13 @@ const SignIn = () => {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-3 py-2 border border-amber-500/30 rounded-md text-sm transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-400 bg-black/50 text-amber-50 placeholder-amber-500/50"
+                  className="w-full px-3 py-2 border border-gold rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-gold bg-pearl text-black placeholder:text-grey-80"
                   placeholder="••••••••"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-amber-400 hover:text-amber-300"
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-gold hover:text-black"
                 >
                   {showPassword ? (
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
@@ -158,20 +134,18 @@ const SignIn = () => {
                 </button>
               </div>
             </div>
-
             <div className="text-right">
               <Link
                 href="/forgot-password"
-                className="text-sm text-amber-400 hover:text-amber-300 transition-colors duration-200"
+                className="text-sm text-gold hover:text-black transition-colors"
               >
                 ¿Olvidaste tu contraseña?
               </Link>
             </div>
-
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-gradient-to-r from-amber-600 to-yellow-500 text-black py-2 px-4 rounded-md text-sm font-medium transition-all duration-200 ease-in-out hover:from-amber-500 hover:to-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-400 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-[1.02] active:scale-[0.98]"
+              className="w-full bg-gold text-black font-bold rounded-lg hover:bg-black hover:text-pearl transition-all shadow-md py-3 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? (
                 <span className="flex items-center justify-center">
@@ -185,14 +159,13 @@ const SignIn = () => {
                 "Iniciar sesión"
               )}
             </button>
-
             <div className="mt-6">
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-amber-500/20"></div>
+                  <div className="w-full border-t border-gold/30"></div>
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-black/80 text-amber-400/80">
+                  <span className="px-2 bg-pearl text-grey-90">
                     ¿No tienes una cuenta?
                   </span>
                 </div>
@@ -200,7 +173,7 @@ const SignIn = () => {
               <div className="mt-4 text-center">
                 <Link
                   href="/sign-up"
-                  className="text-sm text-amber-400 hover:text-amber-300 transition-colors duration-200"
+                  className="text-sm text-gold hover:text-black transition-colors"
                 >
                   Regístrate aquí
                 </Link>

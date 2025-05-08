@@ -75,7 +75,7 @@ const ContactForm: React.FC = () => {
           type="text"
           value={formData.contactName}
           onChange={handleChange}
-            className="w-full px-3 py-2 border border-gold/30 rounded-md text-sm transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold bg-pearl/50 text-grey-80 placeholder-gold/50"
+            className="w-full px-3 py-2 border border-gold/30 rounded-md text-sm transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-gold bg-pearl text-black placeholder:text-grey-80"
           required
         />
       </div>
@@ -89,7 +89,7 @@ const ContactForm: React.FC = () => {
           type="email"
           value={formData.email}
           onChange={handleChange}
-            className="w-full px-3 py-2 border border-gold/30 rounded-md text-sm transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold bg-pearl/50 text-grey-80 placeholder-gold/50"
+            className="w-full px-3 py-2 border border-gold/30 rounded-md text-sm transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-gold bg-pearl text-black placeholder:text-grey-80"
           required
         />
         </div>
@@ -106,7 +106,7 @@ const ContactForm: React.FC = () => {
           type="text"
           value={formData.companyName}
           onChange={handleChange}
-            className="w-full px-3 py-2 border border-gold/30 rounded-md text-sm transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold bg-pearl/50 text-grey-80 placeholder-gold/50"
+            className="w-full px-3 py-2 border border-gold/30 rounded-md text-sm transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-gold bg-pearl text-black placeholder:text-grey-80"
           required
         />
       </div>
@@ -120,7 +120,7 @@ const ContactForm: React.FC = () => {
             type="tel"
             value={formData.phone}
             onChange={handleChange}
-            className="w-full px-3 py-2 border border-gold/30 rounded-md text-sm transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold bg-pearl/50 text-grey-80 placeholder-gold/50"
+            className="w-full px-3 py-2 border border-gold/30 rounded-md text-sm transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-gold bg-pearl text-black placeholder:text-grey-80"
             required
           />
         </div>
@@ -136,7 +136,7 @@ const ContactForm: React.FC = () => {
           rows={4}
           value={formData.message}
           onChange={handleChange}
-          className="w-full px-3 py-2 border border-gold/30 rounded-md text-sm transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold bg-pearl/50 text-grey-80 placeholder-gold/50"
+          className="w-full px-3 py-2 border border-gold/30 rounded-md text-sm transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-gold bg-pearl text-black placeholder:text-grey-80"
           placeholder="Cuéntanos sobre tu negocio y qué esperas del programa de mayoristas..."
         ></textarea>
       </div>
@@ -145,7 +145,7 @@ const ContactForm: React.FC = () => {
         <p className="text-sm text-grey-80/60 mb-6">Al enviar este formulario, aceptas recibir comunicaciones relacionadas con el programa de mayoristas de Kevin Jewelry.</p>
         <button
           type="submit"
-          className="w-full bg-gold text-grey-80 px-6 py-3 rounded-md font-medium hover:bg-gold-light transition-all duration-200 ease-in-out transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full bg-gold text-black font-bold rounded-lg hover:bg-black hover:text-pearl transition-all shadow-md py-3 disabled:opacity-50 disabled:cursor-not-allowed"
           disabled={showLoading}
         >
           {showLoading ? (

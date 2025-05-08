@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
+import AuthBackground from "./shared/auth_background"
 
 interface User {
   firstName: string
@@ -40,7 +41,6 @@ const SignUp = () => {
     }
 
     try {
-      // Verificar si el usuario ya existe
       const existingUsers = JSON.parse(localStorage.getItem("users") || "[]")
       const userExists = existingUsers.some((user: User) => user.email === formData.email)
 
@@ -50,17 +50,14 @@ const SignUp = () => {
         return
       }
 
-      // Crear nuevo usuario
       const newUser: User = {
         firstName: formData.firstName,
         lastName: formData.lastName,
         email: formData.email,
-        password: formData.password, // En un caso real, esto debería estar hasheado
+        password: formData.password,
       }
 
-      // Guardar usuario en localStorage
       localStorage.setItem("users", JSON.stringify([...existingUsers, newUser]))
-      
       router.push("/login")
     } catch (err) {
       setError("Ocurrió un error durante el registro")
@@ -70,48 +67,31 @@ const SignUp = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-black via-gray-900 to-black py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8 bg-black/80 backdrop-blur-lg p-8 rounded-xl shadow-2xl border border-amber-500/20 relative overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent"></div>
-        
+    <div className="relative h-screen flex flex-col items-center justify-center bg-pearl overflow-hidden">
+      <AuthBackground />
+      <div className="max-w-md w-full space-y-8 bg-pearl shadow-2xl p-8 rounded-2xl border border-gold/30 relative overflow-hidden z-10">
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold/30 to-transparent rounded-t-2xl" />
         <div className="text-center">
-          <h2 className="mt-2 text-3xl font-extrabold text-amber-400 tracking-tight">
-            Crear una cuenta
-          </h2>
-          <p className="mt-2 text-sm text-amber-300/80">
-            Únete a nuestra comunidad
-          </p>
+          <h2 className="mt-2 text-3xl font-extrabold text-black tracking-tight mb-2">Crear una cuenta</h2>
+          <p className="mt-2 text-grey-90 text-base">Únete a nuestra comunidad</p>
         </div>
-
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           {error && (
-            <div className="bg-red-900/20 border-l-4 border-red-800/50 p-4 rounded-md">
-              <div className="flex">
-                <div className="flex-shrink-0">
-                  <svg className="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <div className="ml-3">
-                  <p className="text-sm text-red-400">{error}</p>
-                </div>
-              </div>
+            <div className="text-sm text-red-600 bg-red-100 p-3 rounded-md border border-red-300">
+              {error}
             </div>
           )}
-
           <div className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label htmlFor="firstName" className="block text-sm font-medium text-amber-300">
-                  Nombre
-                </label>
+                <label htmlFor="firstName" className="block text-sm font-medium text-black">Nombre</label>
                 <div className="mt-1">
                   <input
                     id="firstName"
                     name="firstName"
                     type="text"
                     required
-                    className="appearance-none block w-full px-3 py-2 border border-amber-500/30 rounded-md shadow-sm placeholder-amber-500/50 bg-black/50 text-amber-50 focus:outline-none focus:ring-amber-400 focus:border-amber-400 sm:text-sm transition duration-150 ease-in-out"
+                    className="appearance-none block w-full px-3 py-2 border border-gold rounded-md shadow-sm placeholder:text-grey-80 bg-pearl text-black focus:outline-none focus:ring-2 focus:ring-gold focus:border-gold sm:text-sm"
                     placeholder="Juan"
                     value={formData.firstName}
                     onChange={handleChange}
@@ -119,16 +99,14 @@ const SignUp = () => {
                 </div>
               </div>
               <div>
-                <label htmlFor="lastName" className="block text-sm font-medium text-amber-300">
-                  Apellido
-                </label>
+                <label htmlFor="lastName" className="block text-sm font-medium text-black">Apellido</label>
                 <div className="mt-1">
                   <input
                     id="lastName"
                     name="lastName"
                     type="text"
                     required
-                    className="appearance-none block w-full px-3 py-2 border border-amber-500/30 rounded-md shadow-sm placeholder-amber-500/50 bg-black/50 text-amber-50 focus:outline-none focus:ring-amber-400 focus:border-amber-400 sm:text-sm transition duration-150 ease-in-out"
+                    className="appearance-none block w-full px-3 py-2 border border-gold rounded-md shadow-sm placeholder:text-grey-80 bg-pearl text-black focus:outline-none focus:ring-2 focus:ring-gold focus:border-gold sm:text-sm"
                     placeholder="Pérez"
                     value={formData.lastName}
                     onChange={handleChange}
@@ -136,54 +114,45 @@ const SignUp = () => {
                 </div>
               </div>
             </div>
-
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-amber-300">
-                Correo electrónico
-              </label>
+              <label htmlFor="email" className="block text-sm font-medium text-black">Correo electrónico</label>
               <div className="mt-1">
                 <input
                   id="email"
                   name="email"
                   type="email"
                   required
-                  className="appearance-none block w-full px-3 py-2 border border-amber-500/30 rounded-md shadow-sm placeholder-amber-500/50 bg-black/50 text-amber-50 focus:outline-none focus:ring-amber-400 focus:border-amber-400 sm:text-sm transition duration-150 ease-in-out"
+                  className="appearance-none block w-full px-3 py-2 border border-gold rounded-md shadow-sm placeholder:text-grey-80 bg-pearl text-black focus:outline-none focus:ring-2 focus:ring-gold focus:border-gold sm:text-sm"
                   placeholder="tu@ejemplo.com"
                   value={formData.email}
                   onChange={handleChange}
                 />
               </div>
             </div>
-
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-amber-300">
-                Contraseña
-              </label>
+              <label htmlFor="password" className="block text-sm font-medium text-black">Contraseña</label>
               <div className="mt-1">
                 <input
                   id="password"
                   name="password"
                   type="password"
                   required
-                  className="appearance-none block w-full px-3 py-2 border border-amber-500/30 rounded-md shadow-sm placeholder-amber-500/50 bg-black/50 text-amber-50 focus:outline-none focus:ring-amber-400 focus:border-amber-400 sm:text-sm transition duration-150 ease-in-out"
+                  className="appearance-none block w-full px-3 py-2 border border-gold rounded-md shadow-sm placeholder:text-grey-80 bg-pearl text-black focus:outline-none focus:ring-2 focus:ring-gold focus:border-gold sm:text-sm"
                   placeholder="••••••••"
                   value={formData.password}
                   onChange={handleChange}
                 />
               </div>
             </div>
-
             <div>
-              <label htmlFor="confirmPassword" className="block text-sm font-medium text-amber-300">
-                Confirmar Contraseña
-              </label>
+              <label htmlFor="confirmPassword" className="block text-sm font-medium text-black">Confirmar Contraseña</label>
               <div className="mt-1">
                 <input
                   id="confirmPassword"
                   name="confirmPassword"
                   type="password"
                   required
-                  className="appearance-none block w-full px-3 py-2 border border-amber-500/30 rounded-md shadow-sm placeholder-amber-500/50 bg-black/50 text-amber-50 focus:outline-none focus:ring-amber-400 focus:border-amber-400 sm:text-sm transition duration-150 ease-in-out"
+                  className="appearance-none block w-full px-3 py-2 border border-gold rounded-md shadow-sm placeholder:text-grey-80 bg-pearl text-black focus:outline-none focus:ring-2 focus:ring-gold focus:border-gold sm:text-sm"
                   placeholder="••••••••"
                   value={formData.confirmPassword}
                   onChange={handleChange}
@@ -191,12 +160,11 @@ const SignUp = () => {
               </div>
             </div>
           </div>
-
           <div>
             <button
               type="submit"
               disabled={loading}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-black bg-gradient-to-r from-amber-600 to-yellow-500 hover:from-amber-500 hover:to-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-400 disabled:opacity-50 disabled:cursor-not-allowed transition duration-150 ease-in-out transform hover:scale-[1.02]"
+              className="w-full bg-gold text-black font-bold rounded-lg hover:bg-black hover:text-pearl transition-all shadow-md py-3 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? (
                 <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -207,20 +175,19 @@ const SignUp = () => {
               {loading ? "Creando cuenta..." : "Crear cuenta"}
             </button>
           </div>
-
           <div className="mt-6">
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-amber-500/20"></div>
+                <div className="w-full border-t border-gold/30"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-black/80 text-amber-400/80">¿Ya tienes una cuenta?</span>
+                <span className="px-2 bg-pearl text-grey-90">¿Ya tienes una cuenta?</span>
               </div>
             </div>
             <div className="mt-6 text-center">
               <Link
                 href="/login"
-                className="font-medium text-amber-400 hover:text-amber-300 transition duration-150 ease-in-out"
+                className="font-medium text-gold hover:text-black transition-colors"
               >
                 Inicia sesión aquí
               </Link>

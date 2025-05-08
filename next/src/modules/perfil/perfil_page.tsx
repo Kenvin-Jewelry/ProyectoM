@@ -129,8 +129,8 @@ const PerfilPage: React.FC = () => {
                 <span className="block w-16 h-1 bg-gradient-to-r from-transparent via-gold to-transparent rounded-full ml-2"></span>
               </h2>
               <div className="space-y-4">
-                <button type="button" onClick={() => setShowChangePwd(true)} className="w-full text-left text-gold font-semibold hover:text-black">Cambiar contraseña</button>
-                <button type="button" onClick={() => setShowActivity(true)} className="w-full text-left text-gold font-semibold hover:text-black">Ver actividad de cuenta</button>
+                <button type="button" onClick={() => setShowChangePwd(true)} className="w-full text-left text-gold font-semibold hover:text-black bg-transparent transition-colors">Cambiar contraseña</button>
+                <button type="button" onClick={() => setShowActivity(true)} className="w-full text-left text-gold font-semibold hover:text-black bg-transparent transition-colors">Ver actividad de cuenta</button>
               </div>
             </section>
 

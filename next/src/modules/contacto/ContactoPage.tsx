@@ -14,9 +14,14 @@ const ContactoPage: React.FC = () => {
 
       {/* Contenido */}
       <main className="flex-grow relative z-10">
-        <div className="container mx-auto px-4 py-16">
-          <h1 className="text-4xl font-semibold text-amber-400 mb-4 text-center">¿Tienes alguna consulta de producto?</h1>
-          <p className="text-lg text-amber-300/80 mb-8 text-center">
+        <div className="container mx-auto px-4 py-16 flex flex-col items-center justify-center">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-black mb-2 text-center drop-shadow-lg">
+            ¿Tienes alguna consulta de producto?
+          </h1>
+          <div className="flex justify-center mb-4">
+            <span className="block w-24 h-1 rounded bg-gold"></span>
+          </div>
+          <p className="text-lg md:text-xl text-grey-90 mb-8 text-center max-w-2xl">
             Rellena el formulario y nuestro equipo te enviará la información detallada sobre el producto que te interese.
           </p>
           <ContactForm />
