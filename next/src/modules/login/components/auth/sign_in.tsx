@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 import Cookies from "js-cookie"
-import AuthBackground from "./shared/AuthBackground"
+import AuthBackground from "./shared/auth_background"
 import { initializeSuperAdmin, defaultSuperAdmin } from "@modules/Auth/config"
 
 interface User {

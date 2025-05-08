@@ -54,9 +54,9 @@ const Hero = () => {
   return (
     <section id="inicio" className="relative overflow-hidden">
       {/* Background decorativo con gradiente de lujo */}
-      <div className="absolute inset-0 bg-black z-0">
-        <div className="absolute inset-0 bg-gradient-to-tr from-black via-amber-950/10 to-black opacity-80"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-500/5 via-transparent to-transparent"></div>
+      <div className="absolute inset-0 bg-pearl z-0">
+        <div className="absolute inset-0 bg-gradient-to-tr from-pearl via-gold/10 to-pearl opacity-80"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gold/5 via-transparent to-transparent"></div>
       </div>
       
       {/* Contenedor principal con diseño split */}
@@ -64,7 +64,7 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[90vh] items-center gap-6 md:gap-8 lg:gap-12">
           {/* Video principal para móviles (visible solo en móviles) */}
           <div className="lg:hidden w-full pt-6">
-            <div className="relative w-full h-[50vh] overflow-hidden rounded-xl border border-amber-500/20 mx-auto">
+            <div className="relative w-full h-[50vh] overflow-hidden rounded-xl border border-gold/20 mx-auto">
               <video 
                 ref={videoRefMobile}
                 className="absolute inset-0 w-full h-full object-cover"
@@ -73,10 +73,10 @@ const Hero = () => {
                 muted
                 playsInline
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-grey-80/70 via-transparent to-transparent"></div>
               <div className="absolute bottom-4 left-4 right-4">
-                <p className="text-amber-300 text-base font-medium mb-1 font-body">Colección Exclusiva</p>
-                <h3 className="text-white text-xl font-bold font-title">DIRIGIDOS POR NUESTRO FUNDADOR EN JOYERÍA DE LUJO</h3>
+                <p className="text-gold text-base font-medium mb-1 font-body">Colección Exclusiva</p>
+                <h3 className="text-grey-80 text-xl font-bold font-title">DIRIGIDOS POR NUESTRO FUNDADOR EN JOYERÍA DE LUJO</h3>
               </div>
             </div>
           </div>
@@ -85,18 +85,18 @@ const Hero = () => {
           <div className="py-8 sm:py-12 md:py-16 lg:py-20 flex flex-col justify-center">
             <div className="max-w-xl mx-auto lg:mx-0">
               {/* Badge exclusiva */}
-              <div className="inline-flex items-center mb-4 md:mb-6 px-3 py-1 bg-amber-500/10 border border-amber-500/30 rounded-full">
-                <span className="w-2 h-2 rounded-full bg-amber-400 mr-2"></span>
-                <span className="text-amber-400 text-xs sm:text-sm font-medium font-body">Programa Exclusivo para Mayoristas</span>
+              <div className="inline-flex items-center mb-4 md:mb-6 px-3 py-1 bg-gold/10 border border-gold/30 rounded-full">
+                <span className="w-2 h-2 rounded-full bg-gold mr-2"></span>
+                <span className="text-gold text-xs sm:text-sm font-medium font-body">Programa Exclusivo para Mayoristas</span>
               </div>
               
               {/* Título principal */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-white leading-tight font-title">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-300">Eleva tu Negocio</span> con Joyería Premium
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-grey-80 leading-tight font-title">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-gold-light">Eleva tu Negocio</span> con Joyería Premium
               </h1>
               
               {/* Descripción con beneficios */}
-              <p className="text-base sm:text-lg text-amber-100/80 mb-6 md:mb-8 leading-relaxed font-body">
+              <p className="text-base sm:text-lg text-grey-80/80 mb-6 md:mb-8 leading-relaxed font-body">
                 Conviértete en mayorista de Kevin Jewelry y accede a nuestro catálogo exclusivo con los diseños más actuales del mercado a precios competitivos.
               </p>
               
@@ -107,8 +107,8 @@ const Hero = () => {
                   "Soporte personalizado y envíos prioritarios"
                 ].map((benefit, i) => (
                   <div key={i} className="flex items-start">
-                    <div className="text-amber-400 mr-3 flex-shrink-0">✓</div>
-                    <p className="text-amber-100/70 font-body text-sm sm:text-base">{benefit}</p>
+                    <div className="text-gold mr-3 flex-shrink-0">✓</div>
+                    <p className="text-grey-80/70 font-body text-sm sm:text-base">{benefit}</p>
                   </div>
                 ))}
               </div>
@@ -116,7 +116,7 @@ const Hero = () => {
               {/* Botón CTA principal */}
               <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
                 <button 
-                  className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-medium bg-gradient-to-r from-amber-600 to-yellow-500 text-black rounded-md hover:from-amber-500 hover:to-yellow-400 transition-all duration-200 ease-in-out transform hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-amber-500/20 flex items-center justify-center font-body"
+                  className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-medium bg-gold text-grey-80 rounded-md hover:bg-gold-light transition-all duration-200 ease-in-out transform hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-gold/20 flex items-center justify-center font-body"
                   onClick={() => window.location.hash = '#formulario'}>
                   <span>Regístrate como Mayorista</span>
                   <svg className="ml-2 w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -125,7 +125,7 @@ const Hero = () => {
                 </button>
                 <a 
                   href="#beneficios"
-                  className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-medium text-amber-400 border border-amber-500/30 hover:border-amber-400 rounded-md transition-all duration-200 ease-in-out flex items-center justify-center hover:bg-amber-500/5 font-body"
+                  className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-medium text-gold border border-gold/30 hover:border-gold rounded-md transition-all duration-200 ease-in-out flex items-center justify-center hover:bg-gold/5 font-body"
                 >
                   Ver Beneficios
                 </a>
@@ -136,7 +136,7 @@ const Hero = () => {
           {/* Lado derecho: Video de producto premium (solo desktop) */}
           <div className="relative hidden lg:block">
             {/* Contenedor de video con efectos - ajustado para mostrar completo */}
-            <div className="relative h-[85vh] w-[90%] mx-auto overflow-hidden rounded-2xl border border-amber-500/20">
+            <div className="relative h-[85vh] w-[90%] mx-auto overflow-hidden rounded-2xl border border-gold/20">
               {/* Video principal de joyería premium */}
               <video
                 ref={videoRefDesktop}
@@ -148,24 +148,24 @@ const Hero = () => {
               />
               
               {/* Overlay con gradiente para mejorar legibilidad */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-grey-80/60 via-transparent to-transparent"></div>
               
               {/* Texto sobre el video */}
               <div className="absolute bottom-8 left-8 right-8">
-                <p className="text-amber-300 text-lg font-medium mb-2 font-body">Colección Exclusiva</p>
-                <h3 className="text-white text-2xl font-bold font-title">DIRIGIDOS POR NUESTRO FUNDADOR EN JOYERÍA DE LUJO</h3>
+                <p className="text-gold text-lg font-medium mb-2 font-body">Colección Exclusiva</p>
+                <h3 className="text-grey-80 text-2xl font-bold font-title">DIRIGIDOS POR NUESTRO FUNDADOR EN JOYERÍA DE LUJO</h3>
               </div>
             </div>
             
             {/* Elementos decorativos */}
-            <div className="absolute -top-16 -right-16 w-32 h-32 bg-amber-400/10 rounded-full blur-xl"></div>
-            <div className="absolute -bottom-16 -left-16 w-32 h-32 bg-amber-400/10 rounded-full blur-xl"></div>
+            <div className="absolute -top-16 -right-16 w-32 h-32 bg-gold/10 rounded-full blur-xl"></div>
+            <div className="absolute -bottom-16 -left-16 w-32 h-32 bg-gold/10 rounded-full blur-xl"></div>
           </div>
         </div>
       </div>
       
       {/* Elementos decorativos adicionales */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black to-transparent"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-pearl to-transparent"></div>
     </section>
   )
 }

@@ -2,23 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Configuración global de fuentes */
+/* Configuración global de fuentes y colores base */
 @layer base {
   html {
-    @apply font-body;
+    @apply font-body bg-pearl text-grey-80;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-title;
+    @apply font-title text-grey-80;
   }
   
   p, span, div, a, button, input, textarea, select {
-    @apply font-body;
+    @apply font-body text-grey-80;
   }
   
   /* Elementos especiales que pueden usar la fuente de acento */
   .badge, .price, .discount, .tag, .label-accent {
-    @apply font-accent;
+    @apply font-accent text-gold;
+  }
+
+  /* Estilos para enlaces */
+  a {
+    @apply text-gold hover:text-gold-light transition-colors duration-200;
+  }
+
+  /* Estilos para botones */
+  button {
+    @apply bg-gold text-grey-80 hover:bg-gold-light transition-colors duration-200;
+  }
+
+  /* Estilos para inputs */
+  input, textarea, select {
+    @apply bg-pearl border border-elegant focus:border-gold focus:ring-1 focus:ring-gold;
   }
 }
 
@@ -82,7 +97,45 @@
   }
 
   .contrast-btn {
-    @apply px-4 py-2 border border-black rounded-full hover:bg-black hover:text-white transition-colors duration-200 ease-in;
+    @apply px-4 py-2 border border-gold rounded-full hover:bg-gold hover:text-grey-80 transition-colors duration-200 ease-in;
+  }
+
+  /* Estilos para tarjetas y contenedores */
+  .card {
+    @apply bg-pearl/50 p-6 rounded-lg shadow-sm border border-elegant;
+  }
+
+  /* Estilos para secciones destacadas */
+  .highlight-section {
+    @apply bg-champagne/30 p-6 rounded-lg;
+  }
+
+  /* Estilos para elementos de navegación */
+  .nav-item {
+    @apply text-grey-80 hover:text-gold transition-colors duration-200;
+  }
+
+  /* Estilos para precios y elementos importantes */
+  .price-tag {
+    @apply text-gold font-semibold;
+  }
+
+  /* Estilos para mensajes y alertas */
+  .alert {
+    @apply bg-rose/20 text-rose border border-rose/30 rounded-lg p-4;
+  }
+
+  /* Estilos para elementos de formulario */
+  .form-group {
+    @apply space-y-2;
+  }
+
+  .form-label {
+    @apply text-grey-80 text-sm;
+  }
+
+  .form-input {
+    @apply w-full px-4 py-2 bg-pearl border border-elegant rounded-lg focus:border-gold focus:ring-1 focus:ring-gold;
   }
 
   .text-xsmall-regular {

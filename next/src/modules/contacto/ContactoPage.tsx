@@ -1,8 +1,8 @@
 import React from "react"
-import Navbar from "../common/components/Navbar"
-import Footer from "../common/components/Footer"
-import GoldenBackground from "../common/components/GoldenBackground"
-import ContactForm from "../landig/ContactForm"
+import Navbar from "../common/components/navbar"
+import Footer from "../common/components/footer"
+import GoldenBackground from "../common/components/goldenBackground"
+import ContactForm from "../landing/contactForm"
 
 const ContactoPage: React.FC = () => {
   return (

@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import AuthBackground from "./shared/AuthBackground"
+import AuthBackground from "./shared/auth_background"
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("")

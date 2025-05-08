@@ -34,17 +34,17 @@ const ProductGrid: React.FC = () => {
     <section className="py-12">
       <div className="container mx-auto px-4">
         {/* Filtros */}
-        <div className="mb-8">
-          <div className="flex items-center justify-between">
-            <div className="flex gap-6">
+        <div className="mb-12">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div className="flex flex-wrap gap-4">
               {categories.map((category) => (
                 <button
                   key={category}
                   onClick={() => setCurrentCategory(category)}
-                  className={`text-sm transition-colors ${
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                     currentCategory === category
-                      ? 'text-amber-400 font-medium'
-                      : 'text-amber-300/70 hover:text-amber-400'
+                      ? 'bg-grey-90 text-pearl shadow-md'
+                      : 'bg-pearl text-grey-90 hover:bg-grey-90/10 border border-grey-90/20'
                   }`}
                 >
                   {category}
@@ -52,7 +52,7 @@ const ProductGrid: React.FC = () => {
               ))}
             </div>
             <div className="flex items-center gap-4">
-              <select className="text-sm bg-transparent border-0">
+              <select className="text-sm bg-pearl border border-grey-90/20 rounded-full px-4 py-2 text-grey-90 font-medium focus:outline-none focus:ring-2 focus:ring-grey-90/30 shadow-sm">
                 <option>Más Reciente</option>
                 <option>Precio: Menor a Mayor</option>
                 <option>Precio: Mayor a Menor</option>
@@ -62,19 +62,19 @@ const ProductGrid: React.FC = () => {
         </div>
 
         {/* Grid de Productos */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
 
         {/* Paginación */}
-        <div className="mt-12 flex justify-center">
-          <nav className="flex items-center gap-2">
+        <div className="mt-16 flex justify-center">
+          <nav className="flex items-center gap-3">
             {[1, 2, 3].map((page) => (
               <button
                 key={page}
-                className="h-8 w-8 rounded-full text-sm"
+                className="h-10 w-10 rounded-full text-sm bg-pearl border border-grey-90/20 text-grey-90 font-medium hover:bg-grey-90 hover:text-pearl transition-all shadow-sm"
               >
                 {page}
               </button>

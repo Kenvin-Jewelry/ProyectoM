@@ -9,6 +9,7 @@ module.exports = {
     "./src/pages/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
     "./src/modules/**/*.{js,ts,jsx,tsx}",
+    "./src/modules/**/**/*.{js,ts,jsx,tsx}",
     "./src/modules/login-mockup/**/*.{js,ts,jsx,tsx}",
     "./node_modules/@medusajs/ui/dist/**/*.{js,jsx,ts,tsx}",
   ],
@@ -23,6 +24,29 @@ module.exports = {
         padding: "padding-top padding-right padding-bottom padding-left",
       },
       colors: {
+        pearl: {
+          DEFAULT: "#FAFAFA",
+          light: "#F5F5F5",
+        },
+        gold: {
+          DEFAULT: "#FAD6A5",
+          light: "#EFD9A8",
+        },
+        rose: {
+          DEFAULT: "#F8E1E7",
+          light: "#EAD3DC",
+        },
+        elegant: {
+          DEFAULT: "#DADADA",
+          light: "#E0E0E0",
+        },
+        pale: {
+          DEFAULT: "#DDEAF6",
+          light: "#E3F2FD",
+        },
+        champagne: {
+          DEFAULT: "#F7E7CE",
+        },
         grey: {
           0: "#FFFFFF",
           5: "#F9FAFB",
