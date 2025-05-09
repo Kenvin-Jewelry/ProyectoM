@@ -77,7 +77,7 @@ const SignIn = () => {
         <div className="bg-pearl shadow-2xl rounded-2xl p-8 border border-gold/30">
           <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold/30 to-transparent rounded-t-2xl" />
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-extrabold text-black mb-2">Bienvenido de nuevo</h2>
+            <h2 className="text-3xl font-extrabold text-black mb-2">Bienvenido otra vez </h2>
             <p className="text-grey-90 text-base">Inicia sesión para continuar</p>
           </div>
           <form onSubmit={handleSubmit} className="space-y-6">
