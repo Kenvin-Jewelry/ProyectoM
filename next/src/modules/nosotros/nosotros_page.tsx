@@ -29,10 +29,10 @@ const NosotrosPage: React.FC = () => {
               />
             </div>
             <div className="flex flex-col justify-center space-y-6">
-              <p className="text-xl md:text-2xl text-amber-300/80 text-justify">
+              <p className="text-xl md:text-2xl text-black text-justify">
                 Nuestro propósito es ayudarte a ti a crear tu propia empresa exitosa en la industria del oro 18K laminado. KEVIN JEWELRY lleva 8 años de trayectoria; iniciamos en Colombia, en 2021 llegamos a España y en 2022 a Ecuador. Somos fabricantes directos y nuestras joyas se elaboran con los más altos estándares de calidad internacional. Empezamos vendiendo joyas al cliente final y, con el tiempo, transformamos la empresa. Hoy nuestro foco principal es ayudar al mayor número de personas posible a crear tu propia joyería y obtener los mejores resultados.
               </p>
-              <p className="text-xl md:text-2xl text-amber-300/80 text-justify">
+              <p className="text-xl md:text-2xl text-black text-justify">
                 Además, nos enorgullece brindar un servicio de asesoría personalizado, acompañándote en cada paso para impulsar tu negocio. Nuestra pasión por la calidad y la innovación se refleja en cada pieza, garantizando diseños exclusivos que se adaptan a las últimas tendencias del mercado.
               </p>
               <div className="flex justify-center">
