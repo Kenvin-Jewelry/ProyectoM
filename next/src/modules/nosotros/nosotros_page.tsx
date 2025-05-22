@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import Navbar from "../common/components/navbar"
 import Footer from "../common/components/footer"
-import ChatBot from "./chat"  // <-- Importa el chat aquí
+import ChatBot from "../chat/chat"
 
 
 export default function NosotrosPage() {

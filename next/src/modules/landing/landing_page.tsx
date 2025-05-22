@@ -6,6 +6,8 @@ import ContactForm from "./contactForm"
 import Navbar from "../common/components/navbar"
 import Footer from "../common/components/footer"
 import GoldenBackground from "../common/components/goldenBackground"
+import ChatBot from "../chat/chat"
+
 
 const LandingPage: React.FC = () => {
   return (
@@ -55,6 +57,8 @@ const LandingPage: React.FC = () => {
 
       {/* 7. Footer */}
       <Footer />
+      {/* 8. ChatBot con contexto de sección */}
+      <ChatBot/>
     </div>
   )
 }

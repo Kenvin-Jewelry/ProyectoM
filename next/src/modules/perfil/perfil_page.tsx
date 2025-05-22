@@ -4,6 +4,7 @@ import Navbar from "../common/components/navbar"
 import Footer from "../common/components/footer"
 import GoldenBackground from "../common/components/goldenBackground"
 import Image from 'next/image'
+import ChatBot from "../chat/chat"
 
 const PerfilPage: React.FC = () => {
   // Estados para campos
@@ -179,6 +180,7 @@ const PerfilPage: React.FC = () => {
           </div>
         </div>
       )}
+      <ChatBot/>
     </div>
   )
 }

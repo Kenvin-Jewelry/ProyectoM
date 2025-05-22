@@ -3,6 +3,7 @@ import Navbar from "../common/components/navbar"
 import Footer from "../common/components/footer"
 import GoldenBackground from "../common/components/goldenBackground"
 import ContactForm from "../landing/contactForm"
+import ChatBot from "../chat/chat"
 
 const ContactoPage: React.FC = () => {
   return (
@@ -30,6 +31,8 @@ const ContactoPage: React.FC = () => {
 
       {/* Footer */}
       <Footer />
+
+      <ChatBot/>
     </div>
   )
 }

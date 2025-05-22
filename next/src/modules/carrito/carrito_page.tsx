@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react"
 import Navbar from "../common/components/navbar"
 import Footer from "../common/components/footer"
 import GoldenBackground from "../common/components/goldenBackground"
-
+import ChatBot from "../chat/chat"
 interface CartItem {
   id: string;
   name: string;
@@ -106,6 +106,8 @@ const CarritoPage: React.FC = () => {
 
       {/* Footer */}
       <Footer />
+
+      <ChatBot/>
     </div>
   )
 }

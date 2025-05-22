@@ -3,6 +3,7 @@ import Navbar from "../common/components/navbar"
 import Footer from "../common/components/footer"
 import ProductGrid from "./components/ProductGrid"
 import GoldenBackground from "../common/components/goldenBackground"
+import ChatBot from "../chat/chat"
 
 const CatalogPage: React.FC = () => {
   return (
@@ -36,6 +37,8 @@ const CatalogPage: React.FC = () => {
 
       {/* Footer */}
       <Footer />
+
+      <ChatBot/>
     </div>
   )
 }
