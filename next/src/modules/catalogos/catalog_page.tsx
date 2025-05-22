@@ -2,7 +2,7 @@ import React from "react"
 import Navbar from "../common/components/Navbar"
 import Footer from "../common/components/Footer"
 import ProductGrid from "./components/ProductGrid"
-import GoldenBackground from "@modules/common/components/GoldenBackground"
+import GoldenBackground from "@/modules/common/components/GoldenBackground"
 import ChatBot from "../chat/chat"
 
 const CatalogPage: React.FC = () => {

@@ -5,7 +5,7 @@ import Testimonials from "./testimonials"
 import ContactForm from "./contactForm"
 import Navbar from "../common/components/Navbar"
 import Footer from "../common/components/Footer"
-import GoldenBackground from "@modules/common/components/GoldenBackground"
+import GoldenBackground from "@/modules/common/components/GoldenBackground"
 import ChatBot from "../chat/chat"
 
 

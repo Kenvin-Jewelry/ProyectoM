@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect } from "react"
 import Footer from "../common/components/Footer"
-import GoldenBackground from "@modules/common/components/GoldenBackground"
+import GoldenBackground from "@/modules/common/components/GoldenBackground"
 import ChatBot from "../chat/chat"
 import Navbar from "../common/components/Navbar"
 interface CartItem {
