@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import Navbar from "../common/components/navbar"
-import Footer from "../common/components/footer"
+import Navbar from "../common/components/Navbar"
+import Footer from "../common/components/Footer"
 import ChatBot from "../chat/chat"
 
 

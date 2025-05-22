@@ -1,8 +1,8 @@
 import React from "react"
-import Navbar from "../common/components/navbar"
-import Footer from "../common/components/footer"
+import Navbar from "../common/components/Navbar"
+import Footer from "../common/components/Footer"
 import ProductGrid from "./components/ProductGrid"
-import GoldenBackground from "../common/components/goldenBackground"
+import GoldenBackground from "@modules/common/components/GoldenBackground"
 import ChatBot from "../chat/chat"
 
 const CatalogPage: React.FC = () => {

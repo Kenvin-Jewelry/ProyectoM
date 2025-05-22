@@ -1,7 +1,7 @@
 import React from "react"
 
-import Navbar from "../../common/components/navbar"
-import Footer from "../../common/components/footer"
+import Navbar from "../../common/components/Navbar"
+import Footer from "../../common/components/Footer"
 
 const Layout: React.FC<{
   children: React.ReactNode

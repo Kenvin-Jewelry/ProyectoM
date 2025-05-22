@@ -1,8 +1,8 @@
 "use client"
 import React, { useState, useEffect } from "react"
-import Navbar from "../common/components/navbar"
-import Footer from "../common/components/footer"
-import GoldenBackground from "../common/components/goldenBackground"
+import Navbar from "../common/components/Navbar"
+import Footer from "../common/components/Footer"
+import GoldenBackground from "@modules/common/components/GoldenBackground"
 import Image from 'next/image'
 import ChatBot from "../chat/chat"
 
