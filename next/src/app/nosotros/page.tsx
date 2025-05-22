@@ -1,5 +1,8 @@
-import NosotrosPage from '@modules/nosotros/NosotrosPage'
+"use client"
 
-export default function Page() {
+import React from 'react'
+import NosotrosPage from '@modules/nosotros/nosotros_page'
+
+export default function Nosotros() {
   return <NosotrosPage />
 } 

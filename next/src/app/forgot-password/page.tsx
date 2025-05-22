@@ -1,4 +1,4 @@
-import ForgotPassword from "@modules/login/components/auth/forgot-password"
+import ForgotPassword from "@modules/login/components/auth/forgot_password"
 
 export default function ForgotPasswordPage() {
   return <ForgotPassword />

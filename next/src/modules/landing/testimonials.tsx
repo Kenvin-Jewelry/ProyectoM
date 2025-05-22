@@ -190,13 +190,13 @@ const Testimonials: React.FC = () => {
   }
   
   return (
-    <section id="nuestro-trabajo" className="py-16 sm:py-20 md:py-24 relative z-10 overflow-hidden">
+    <section id="nuestro-trabajo" className="py-16 sm:py-20 md:py-24 relative z-10 overflow-hidden bg-pearl">
       <div className="container mx-auto px-4 relative">
         {/* Línea decorativa superior */}
-        <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-amber-500/30 to-transparent"></div>
+        <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold/30 to-transparent"></div>
         
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-amber-400 font-title">Nuestras Colecciones Exclusivas</h2>
-        <p className="text-amber-300/80 text-center max-w-xl mx-auto mb-12 font-body">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-black font-title">Nuestras Colecciones Exclusivas</h2>
+        <p className="text-grey-100 text-center max-w-xl mx-auto mb-12 font-body">
           Explora nuestra variedad de diseños únicos y descubre la perfección en cada pieza. Joyas que cuentan historias y realzan tu estilo.
         </p>
         
@@ -204,7 +204,7 @@ const Testimonials: React.FC = () => {
         <div className="relative w-full max-w-[800px] mx-auto">
           {/* Flechas de navegación */}
           <button 
-            className={`absolute top-1/2 left-2 md:left-4 z-30 -translate-y-1/2 p-2 md:p-3 rounded-full bg-black/60 text-amber-400 hover:bg-black hover:text-amber-300 transition-all focus:outline-none border border-amber-500/30 hover:border-amber-500/50 shadow-lg hover:shadow-amber-500/30 ${transitioning ? 'opacity-50 cursor-not-allowed' : ''}`}
+            className={`absolute top-1/2 left-2 md:left-4 z-30 -translate-y-1/2 p-2 md:p-3 rounded-full bg-pearl/90 text-black hover:bg-gold hover:text-black transition-all focus:outline-none border border-grey-90/20 hover:border-gold shadow-lg ${transitioning ? 'opacity-50 cursor-not-allowed' : ''}`}
             onClick={prevSlide}
             aria-label="Video anterior"
             disabled={transitioning}
@@ -215,7 +215,7 @@ const Testimonials: React.FC = () => {
           </button>
           
           <button 
-            className={`absolute top-1/2 right-2 md:right-4 z-30 -translate-y-1/2 p-2 md:p-3 rounded-full bg-black/60 text-amber-400 hover:bg-black hover:text-amber-300 transition-all focus:outline-none border border-amber-500/30 hover:border-amber-500/50 shadow-lg hover:shadow-amber-500/30 ${transitioning ? 'opacity-50 cursor-not-allowed' : ''}`}
+            className={`absolute top-1/2 right-2 md:right-4 z-30 -translate-y-1/2 p-2 md:p-3 rounded-full bg-pearl/90 text-black hover:bg-gold hover:text-black transition-all focus:outline-none border border-grey-90/20 hover:border-gold shadow-lg ${transitioning ? 'opacity-50 cursor-not-allowed' : ''}`}
             onClick={() => nextSlide()}
             aria-label="Siguiente video"
             disabled={transitioning}
@@ -238,7 +238,7 @@ const Testimonials: React.FC = () => {
                   zIndex: transitioning && direction === 'prev' ? '0' : '10',
                 }}
               >
-                <div className="w-full h-full bg-black rounded-xl overflow-hidden border border-amber-500/20 relative">
+                <div className="w-full h-full bg-pearl rounded-xl overflow-hidden border border-gold/20 relative">
                   <video
                     ref={(el) => setVideoRef(el, getPrevIndex(currentIndex))}
                     className="w-full h-full object-cover object-center"
@@ -253,7 +253,7 @@ const Testimonials: React.FC = () => {
                   
                   {/* Play icon overlay */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="bg-amber-500/80 rounded-full p-2 shadow-lg">
+                    <div className="bg-gold/80 rounded-full p-2 shadow-lg">
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-black" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
                       </svg>
@@ -264,7 +264,7 @@ const Testimonials: React.FC = () => {
 
               {/* Video actual (central) */}
               <div 
-                className={`absolute w-[320px] md:w-[360px] h-[95%] transform z-20 rounded-xl overflow-hidden shadow-2xl border-2 border-amber-500/40 transition-all duration-700 ease-in-out ${
+                className={`absolute w-[320px] md:w-[360px] h-[95%] transform z-20 rounded-xl overflow-hidden shadow-2xl border-2 border-gold/40 transition-all duration-700 ease-in-out ${
                   transitioning 
                     ? direction === 'next' 
                       ? 'slide-out-left' 
@@ -300,7 +300,7 @@ const Testimonials: React.FC = () => {
                   
                   {/* Controles de sonido */}
                   <button 
-                    className="absolute bottom-4 right-4 z-30 p-2 rounded-full bg-black/60 text-amber-400 hover:bg-black hover:text-amber-300 transition-all focus:outline-none border border-amber-500/30 hover:border-amber-500/50 shadow-lg"
+                    className="absolute bottom-4 right-4 z-30 p-2 rounded-full bg-pearl/90 text-black hover:bg-gold hover:text-black transition-all focus:outline-none border border-grey-90/20 hover:border-gold shadow-lg"
                     onClick={toggleSound}
                     aria-label={isPlaying ? "Silenciar" : "Activar sonido"}
                   >
@@ -321,7 +321,7 @@ const Testimonials: React.FC = () => {
               {/* Nuevo video central (durante la transición) */}
               {transitioning && (
                 <div 
-                  className={`absolute w-[320px] md:w-[360px] h-[95%] transform rounded-xl overflow-hidden shadow-2xl border-2 border-amber-500/40 transition-all duration-700 ease-in-out ${
+                  className={`absolute w-[320px] md:w-[360px] h-[95%] transform rounded-xl overflow-hidden shadow-2xl border-2 border-gold/40 transition-all duration-700 ease-in-out ${
                     direction === 'next' ? 'slide-in-right' : 'slide-in-left'
                   }`}
                   style={{ 
@@ -349,7 +349,7 @@ const Testimonials: React.FC = () => {
                     
                     {/* Controles de sonido */}
                     <button 
-                      className="absolute bottom-4 right-4 z-30 p-2 rounded-full bg-black/60 text-amber-400 hover:bg-black hover:text-amber-300 transition-all focus:outline-none border border-amber-500/30 hover:border-amber-500/50 shadow-lg"
+                      className="absolute bottom-4 right-4 z-30 p-2 rounded-full bg-pearl/90 text-black hover:bg-gold hover:text-black transition-all focus:outline-none border border-grey-90/20 hover:border-gold shadow-lg"
                       onClick={toggleSound}
                       aria-label="Silenciar"
                     >
@@ -372,7 +372,7 @@ const Testimonials: React.FC = () => {
                   zIndex: transitioning && direction === 'next' ? '0' : '10',
                 }}
               >
-                <div className="w-full h-full bg-black rounded-xl overflow-hidden border border-amber-500/20 relative">
+                <div className="w-full h-full bg-black rounded-xl overflow-hidden border border-gold/20 relative">
                   <video
                     ref={(el) => setVideoRef(el, getNextIndex(currentIndex))}
                     className="w-full h-full object-cover object-center"
@@ -387,7 +387,7 @@ const Testimonials: React.FC = () => {
                   
                   {/* Play icon overlay */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="bg-amber-500/80 rounded-full p-2 shadow-lg">
+                    <div className="bg-gold/80 rounded-full p-2 shadow-lg">
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-black" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
                       </svg>
@@ -406,8 +406,8 @@ const Testimonials: React.FC = () => {
                 onClick={() => goToSlide(idx)}
                 className={`transition-all focus:outline-none ${
                   idx === currentIndex 
-                    ? 'bg-amber-500 w-8 h-2 rounded-md' 
-                    : 'bg-amber-500/30 w-4 h-2 rounded-full hover:bg-amber-500/50'
+                    ? 'bg-black w-8 h-2 rounded-md' 
+                    : 'bg-grey-90/30 w-4 h-2 rounded-full hover:bg-black/60'
                 }`}
                 aria-label={`Ir al video ${idx + 1}`}
                 disabled={transitioning}
@@ -417,7 +417,7 @@ const Testimonials: React.FC = () => {
         </div>
         
         {/* Línea decorativa inferior */}
-        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-amber-500/30 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold/30 to-transparent"></div>
       </div>
 
       {/* Estilos CSS adicionales para el efecto 3D y animaciones */}

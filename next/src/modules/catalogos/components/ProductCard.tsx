@@ -21,7 +21,7 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
 
   return (
     <>
-      <div className="relative bg-black/50 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+      <div className="group relative bg-pearl rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-grey-90/10">
         <div className="aspect-[3/4] w-full overflow-hidden">
           <Image
             src={product.image}
@@ -31,23 +31,28 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
             className="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
           />
         </div>
-        <div className="p-4 space-y-2 bg-black/60 backdrop-blur-sm">
-          <h3 className="text-lg font-semibold text-white group-hover:text-amber-400 transition-colors">{product.name}</h3>
-          <p className="text-base text-amber-200 group-hover:text-white transition-colors">${product.price.toLocaleString()}</p>
+        <div className="p-6 space-y-3 bg-pearl/95 backdrop-blur-sm">
+          <h3 className="text-lg font-semibold text-grey-100 group-hover:text-grey-90 transition-colors">{product.name}</h3>
+          <p className="text-base font-medium text-grey-90 group-hover:text-grey-100 transition-colors">${product.price.toLocaleString()}</p>
           <button
-            className="mt-4 w-full bg-amber-400 text-black py-2 rounded-md font-medium hover:bg-white hover:text-amber-400 transition-colors"
+            className="mt-4 w-full bg-grey-90 text-pearl py-3 rounded-lg font-medium hover:bg-grey-100 transition-all shadow-sm"
             onClick={() => setShowDetails(true)}
           >Detalles</button>
         </div>
       </div>
       {showDetails && (
         <Modal title={product.name} onClose={() => setShowDetails(false)}>
-          <img src={product.image} alt={product.name} className="w-full h-64 object-cover rounded" />
-          <p className="text-amber-300">Precio: ${product.price.toLocaleString()}</p>
-          <p className="text-gray-700">Categoría: {product.category}</p>
-          <button className="mt-4 bg-amber-400 text-white px-4 py-2 rounded" onClick={() => { addToCart(); setShowDetails(false); }}>
-            Agregar al Carrito
-          </button>
+          <div className="bg-pearl p-6 rounded-lg">
+            <img src={product.image} alt={product.name} className="w-full h-64 object-cover rounded-lg border border-grey-90/10" />
+            <p className="text-grey-100 font-medium mt-4">Precio: ${product.price.toLocaleString()}</p>
+            <p className="text-grey-90">Categoría: {product.category}</p>
+            <button 
+              className="mt-6 w-full bg-grey-90 text-pearl px-4 py-3 rounded-lg hover:bg-grey-100 transition-all shadow-sm" 
+              onClick={() => { addToCart(); setShowDetails(false); }}
+            >
+              Agregar al Carrito
+            </button>
+          </div>
         </Modal>
       )}
     </>

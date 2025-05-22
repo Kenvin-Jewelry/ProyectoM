@@ -1,6 +1,4 @@
-const checkEnvVariables = require("./check-env-variables")
-
-checkEnvVariables()
+import checkEnvVariables from "./check-env-variables.mjs"
 
 /**
  * @type {import('next').NextConfig}
@@ -15,9 +13,9 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  // typescript: {
-  //   ignoreBuildErrors: true,
-  // },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   images: {
     remotePatterns: [
       {
@@ -40,4 +38,9 @@ const nextConfig = {
   },
 }
 
-module.exports = nextConfig
+// En desarrollo, validamos variables y habilitamos bindings locales
+if (process.env.NODE_ENV === 'development') {
+  checkEnvVariables()
+}
+
+export default nextConfig

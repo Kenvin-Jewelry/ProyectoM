@@ -129,7 +129,7 @@ export async function middleware(request: NextRequest) {
     request.nextUrl.pathname === "/forgot-password" ||
     request.nextUrl.pathname === "/"
   )) {
-    return NextResponse.redirect(new URL("/dk", request.url))
+    return NextResponse.redirect(new URL("/login", request.url))
   }
 
   return NextResponse.next()

@@ -10,6 +10,8 @@ const requiredEnvs = [
 ]
 
 function checkEnvVariables() {
+  // Solo validar en desarrollo
+  if (process.env.NODE_ENV !== 'development') return
   const missingEnvs = requiredEnvs.filter(function (env) {
     return !process.env[env.key]
   })

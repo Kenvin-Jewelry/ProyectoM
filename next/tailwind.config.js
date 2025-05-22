@@ -7,8 +7,10 @@ module.exports = {
   content: [
     "./src/app/**/*.{js,ts,jsx,tsx}",
     "./src/pages/**/*.{js,ts,jsx,tsx}",
+    "./src/pages/nosotros/**/*.{js,ts,jsx,tsx}", // 🔧 Ruta agregada
     "./src/components/**/*.{js,ts,jsx,tsx}",
     "./src/modules/**/*.{js,ts,jsx,tsx}",
+    "./src/modules/**/**/*.{js,ts,jsx,tsx}",
     "./src/modules/login-mockup/**/*.{js,ts,jsx,tsx}",
     "./node_modules/@medusajs/ui/dist/**/*.{js,jsx,ts,tsx}",
   ],
@@ -23,6 +25,29 @@ module.exports = {
         padding: "padding-top padding-right padding-bottom padding-left",
       },
       colors: {
+        pearl: {
+          DEFAULT: "#FAFAFA",
+          light: "#F5F5F5",
+        },
+        gold: {
+          DEFAULT: "#FAD6A5",
+          light: "#EFD9A8",
+        },
+        rose: {
+          DEFAULT: "#F8E1E7",
+          light: "#EAD3DC",
+        },
+        elegant: {
+          DEFAULT: "#DADADA",
+          light: "#E0E0E0",
+        },
+        pale: {
+          DEFAULT: "#DDEAF6",
+          light: "#E3F2FD",
+        },
+        champagne: {
+          DEFAULT: "#F7E7CE",
+        },
         grey: {
           0: "#FFFFFF",
           5: "#F9FAFB",
@@ -164,15 +189,11 @@ module.exports = {
       },
       animation: {
         ring: "ring 2.2s cubic-bezier(0.5, 0, 0.5, 1) infinite",
-        "fade-in-right":
-          "fade-in-right 0.3s cubic-bezier(0.5, 0, 0.5, 1) forwards",
+        "fade-in-right": "fade-in-right 0.3s cubic-bezier(0.5, 0, 0.5, 1) forwards",
         "fade-in-top": "fade-in-top 0.2s cubic-bezier(0.5, 0, 0.5, 1) forwards",
-        "fade-out-top":
-          "fade-out-top 0.2s cubic-bezier(0.5, 0, 0.5, 1) forwards",
-        "accordion-open":
-          "accordion-slide-down 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards",
-        "accordion-close":
-          "accordion-slide-up 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards",
+        "fade-out-top": "fade-out-top 0.2s cubic-bezier(0.5, 0, 0.5, 1) forwards",
+        "accordion-open": "accordion-slide-down 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards",
+        "accordion-close": "accordion-slide-up 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards",
         enter: "enter 200ms ease-out",
         "slide-in": "slide-in 1.2s cubic-bezier(.41,.73,.51,1.02)",
         leave: "leave 150ms ease-in forwards",
