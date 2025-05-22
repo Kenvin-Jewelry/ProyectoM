@@ -42,7 +42,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
-    "@cloudflare/next-on-pages": "^1.13.12",
     "@medusajs/types": "latest",
     "@medusajs/ui-preset": "latest",
     "@types/lodash": "^4.14.195",
